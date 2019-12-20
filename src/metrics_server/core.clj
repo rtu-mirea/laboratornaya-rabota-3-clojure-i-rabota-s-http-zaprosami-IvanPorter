@@ -282,8 +282,16 @@
   (:data (get-files-with-http-info)))
 
 
-(defn task1 [metrics]
+(defn task1_part1 [metrics]
   (filter (fn [x] (< (get x :cpuTemp) 2)) metrics)
+)
+
+(defn task1_part2 [metrics]
+  (average (map :cpuTemp (metrics)))
+)
+
+(defn task1_part3 [metrics]
+  (average (map :cpuLoad (metrics)))
 )
 
 (defn task2_part1 [files]
@@ -318,7 +326,9 @@
 )
 
 (defn -main [& args]
-  (println (task1 (get-metrics)))
+  (println (task1_part1 (get-metrics)))
+  (println (task1_part2 (get-metrics)))
+  (println (task1_part3 (get-metrics)))
   (println (task2_part1 (get-files)))
   (println (task2_part2 (get-files)))
   (println (task2_part3 (get-files)))

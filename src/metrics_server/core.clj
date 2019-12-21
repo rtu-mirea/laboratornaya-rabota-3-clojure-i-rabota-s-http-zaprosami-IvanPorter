@@ -282,6 +282,11 @@
   (:data (get-files-with-http-info)))
 
 
+(defn average
+  [numbers]
+  (/ (apply + numbers) (count numbers))
+)
+
 (defn task1_part1 [metrics]
   (filter (fn [x] (< (get x :cpuTemp) 2)) metrics)
 )

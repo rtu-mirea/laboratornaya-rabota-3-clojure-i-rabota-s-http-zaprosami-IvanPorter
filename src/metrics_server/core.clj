@@ -281,22 +281,19 @@
   []
   (:data (get-files-with-http-info)))
 
-
-(defn average
-  [numbers]
-  (/ (apply + numbers) (count numbers))
-)
+(defn average [numbers]
+(/ (apply + numbers) (count numbers)))
 
 (defn task1_part1 [metrics]
   (filter (fn [x] (< (get x :cpuTemp) 2)) metrics)
 )
 
 (defn task1_part2 [metrics]
-  (average (map :cpuTemp (metrics)))
+  (average (map :cpuTemp metrics))
 )
 
 (defn task1_part3 [metrics]
-  (average (map :cpuLoad (metrics)))
+  (average (map :cpuLoad metrics))
 )
 
 (defn task2_part1 [files]

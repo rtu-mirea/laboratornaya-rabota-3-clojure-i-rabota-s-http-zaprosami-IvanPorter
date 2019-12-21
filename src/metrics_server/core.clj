@@ -285,7 +285,7 @@
 (/ (apply + numbers) (count numbers)))
 
 (defn task1_part1 [metrics]
-  (filter (fn [x] (< (get x :cpuTemp) 2)) metrics)
+  (filter (fn [x] (> (get x :cpuTemp) 2)) metrics)
 )
 
 (defn task1_part2 [metrics]
